@@ -1,0 +1,149 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WebJS7</title>
+		<script language="JavaScript">
+			s=""
+			sum=0
+			function gr(obj,m){
+				r=100*(Number(((obj.elements[0])[m]).value)+1)
+				s+=((obj.elements[0])[m]).text+"\r\n"
+				obj.restext.value=s
+				sum+=r
+				obj.res.value=r
+			}
+			sum1=0
+			function eq(){
+				q=test.question.value
+				a=test.answer.value;
+				if (a==q)
+					sum1 +=1
+			}
+			function result(){
+				document.test.res.value=sum1
+			}
+			function change_bg(color, mode, image){
+				if (mode == 1)
+					document.getElementById("chosen_table").style.backgroundColor = color
+				else
+					document.getElementById("chosen_table").style.backgroundImage = "url('" + image + "')"
+			}
+			sum2=0
+			s1=""
+			function gr1(obj,m){
+				r=100*(Number(((obj.elements[0])[m]).value)+1)
+				s1+=((obj.elements[0])[m]).text+"\r\n"
+				obj.restext.value=s1
+				sum2+=r
+				obj.res.value=r
+			}
+		</script>
+	</head>
+	<body>
+		<form name="form1">
+			<h3>Анкета</h3>
+			<table border=3 bgcolor=silver>
+				<tr>
+					<th>Обрана мова</th>
+					<th>Результат</th>
+				</tr>
+				<tr>
+					<td valign=top>
+						<select name="data" size=3 onChange="gr(form1,form1.data.value)">
+							<option value=0>українська
+							<option value=1>англійська
+							<option value=2>китайська
+						</select><br>
+						<input type="text" name="res" size=15>
+					</td>
+					<td>
+						<textarea name="restext" cols=15 rows=6></textarea><br>
+						<input type="button" value="Сума" onClick="form1.resgr.value=sum">
+						<input type="text" name="resgr" size=10>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<input type="reset" value="Очистити" onClick="sum=0; s=''">
+		</form>
+		
+		<h3 align=center>Міста і пам’ятки</h3>
+		<form align=center name="test">
+			<table border=3 align=center cellpadding=5
+				cellspacing=6 bgcolor= silver>
+				<tr><th>Пам’ятка</th><th>Знаходиться в місті</th>
+				<tr><td>
+				<select size =7 name="question" onChange="q=test.question.value">
+					<option value="mad">Музей Прадо<br>
+					<option value="ber" >Рейхстаг<br>
+					<option value="mil">Опера Ла Скала<br>
+					<option value="ier">Стіна Плачу<br>
+					<option value="mek">Священний камінь Кааб<br>
+					<option value="par">Тріумфальна Арка<br>
+					<option value="new">Статуя Свободи<br>
+					<option value="lon">Tayеp<br>
+				</select>
+				</td><td>
+				<select size=7 name="answer" onChange="eq()">
+					<option value="mek">Meккa<br>
+					<option value="ier">Єpycaлим<br>
+					<option value="mil">Мілан<br>
+					<option value="par">Пapиж<br>
+					<option value="mad">Мадрид<br>
+					<option value="lon">Лoндoн<br>
+					<option value="new">Нью-Йорк<br>
+					<option value="ber">Бepлін<br>
+				</select>
+				</td></tr>
+			</table>
+			Кількість правильних відповідей
+			<input type="text" name="res" size="5"><br>
+			<input type="button" value="Результат" onclick="result()">
+			<input type="reset" value= "Оновити" onclick="sum1=0">
+		</form>
+		
+		<form name="table_thing">
+			Змінити фон<br>
+			<select size=7 name="bg">
+				<option value=1>Кольором<br>
+				<option value=0>Картинкою<br>
+			</select><br><br>
+			Оберіть колір: <input type="color" name="chosen_color"><br>
+			Посилання на зображення: <input type="text" size=100 name="chosen_image"><br>
+			<input type="button" value="Змінити" onClick="change_bg(document.table_thing.chosen_color.value, document.table_thing.bg.value, document.table_thing.chosen_image.value)">
+			<input type="reset">
+		</form>
+		<br>
+		<table border=1 cellspacing=0 width="100%" height="300" id="chosen_table">
+			<tr><td></td><td></td></tr>
+			<tr><td></td><td></td></tr>
+		</table>
+		
+		<form name="price_calc">
+			<h3>Обчислення вартості</h3>
+			<table border=3 bgcolor=silver>
+				<tr>
+					<th>Обраний товар</th>
+					<th>Результат</th>
+				</tr>
+				<tr>
+					<td valign=top>
+						<select name="data" size=3 onChange="gr1(price_calc,price_calc.data.value)">
+							<option value=0>Товар1
+							<option value=1>Товар2
+							<option value=2>Товар3
+						</select><br>
+						<input type="text" name="res" size=15>
+					</td>
+					<td>
+						<textarea name="restext" cols=15 rows=6></textarea><br>
+						<input type="button" value="Сума" onClick="price_calc.resgr.value=sum2">
+						<input type="text" name="resgr" size=10>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<input type="reset" value="Очистити" onClick="sum2=0; s1=''">
+		</form>
+	</body>
+</html>

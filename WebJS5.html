@@ -1,0 +1,139 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WebJS5</title>
+		<script language="JavaScript">
+			function test(k){
+				a = form1.data.value
+				if (a != "")
+					form1.res.value= k*Math.pow(a,2)
+				else
+					alert ("Введіть значення!")
+			}
+			function chpict(obj){
+				if ((obj.elements[0]).checked)
+					document.mypict.align="left"
+				else
+					document.mypict.align="right"
+			}
+			function reset(){
+				document.mypict.align="left"
+			}
+			function linechange(obj){
+				if (obj.data.value != ""){
+					if ((obj.elements[1]).checked)
+						document.getElementById("line").width = Number(document.getElementById("line").width) + Number(obj.data.value)
+					else
+						document.getElementById("line").size = Number(document.getElementById("line").size) + Number(obj.data.value)
+				}
+				else
+					alert ("Введіть значення!")
+			}
+			function resetline(){
+				document.getElementById("line").width = 1500
+				document.getElementById("line").size = 0
+			}
+			function submit_form(obj){
+				if (obj.person_name.value != "" && obj.age.value != ""){
+					person_name = obj.person_name.value
+					if (!isNaN(obj.age.value) && Number(obj.age.value) >= 0 && Number(obj.age.value) <= 200) {
+						age = Number(obj.age.value)
+						flag=1
+					} else {
+						alert("Введіть коректні дані")
+						flag=0
+					}
+					
+					rad_sex=document.getElementsByName("f4")
+					for (i=0; i<rad_sex.length; i++) {
+						if (rad_sex[i].checked) {
+							sex = rad_sex[i].value
+						}
+					}
+
+					rad_status=document.getElementsByName("f5")
+					for (i=0; i<rad_status.length; i++) {
+						if (rad_status[i].checked) {
+							status = rad_status[i].value
+						}
+					}
+					
+					if (flag)
+						alert("ПІБ: " + person_name + ", " + sex + ", " + age + " років, " + status + ".")
+				} else
+					alert("Заповніть всі поля!")
+			}
+		</script>
+	</head>
+	<body>
+		<form name="form1">
+			Введіть значення
+			<input type="text" name="data" size=10><br>
+			Вкажіть фігуру <br>
+			<input type="radio" name="fv" value=1 onClick="test(form1.elements[1].value)">квадрат<br>
+			<input type="radio" name="fv" value=3.14 onClick="test(form1.elements[2].value)">круг<br>
+			<input type="radio" name="fv" value=0.42 onClick="test(form1.elements[3].value)">трикутник<br>
+			<input type="reset"><hr>
+			Площа: <input type="text" name="res" size=10>
+		</form>
+		
+		<p>Зображення і обтікання текстом</p>
+		<form name="form2">
+			Оберіть значення параметра вирівнювання і натисніть кнопку
+			<b>Переглянути</b>.<br>
+			<input type="radio" name="alg" checked value=ld>(left) вирівнювання вліво<br>
+			<input type="radio" name="alg" value=rd>(right) вирівнювання вправо<br>
+			<input type="button" value= "Переглянути" onclick="chpict(form2)">
+			<input type="reset" value="Скасувати" onclick="reset()">
+		</form>
+		<table bgcolor="F8F8FF">
+			<tr>
+				<td>Lorem Ipsum не є випадковим набором літер. Він походить з уривку
+				класичної латинської літератури 45 року до н.е., тобто має більш як 2000-річну
+				історію. Річард Макклінток, професор латини з коледжу Хемпдін-Сидні, що у
+				Вірджінії, вивчав одне з найменш зрозумілих латинських слів - consectetur - з
+				уривку Lorem Ipsum, і у пошуку цього слова в класичній літературі знайшов
+				безсумнівне джерело.
+				<img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Lorem_Ipsum_Gill_Sans.png" name=mypict align=left border=3 width=300>
+				Lorem Ipsum походить з розділів 1.10.32 та 1.10.33 цицеронівського "de Finibus
+				Bonorum et Malorum" ("Про межі добра і зла"), написаного у 45 році до н.е. Цей
+				трактат з теорії етики був дуже популярним в епоху Відродження. Перший
+				рядок Lorem Ipsum, "Lorem ipsum dolor sit amet..." походить з одного з рядків
+				розділу 1.10.32.
+				</td>
+			</tr>
+		</table>
+		
+		<p>Зміна розмірів і положення на сторінці горизонтальної лінії</p>
+		<form name="form3">
+			Введіть значення, яке додати:
+			<input type="text" name="data" size=10><br>
+			Змінити:<br>
+			<input type="radio" name="f3" checked>Ширину<br>
+			<input type="radio" name="f3">Висоту<br>
+			<input type="button" value="Виконати" onClick="linechange(form3)"><br>
+			<input type="reset" onClick="resetline()"><br>
+		</form>
+		<hr id="line" width="1500">
+		
+		<p>Анкета</p>
+		<form name="form4">
+			ПІБ:<br>
+			<input type="text" name="person_name" size=40><br>
+			Стать:<br>
+			<input type="radio" checked name="f4" value="Чоловік">Чоловік<br>
+			<input type="radio" name="f4" value="Жінка">Жінка<br>
+			<input type="radio" name="f4" value="Інше">Інше<br>
+			Вік:<br>
+			<input type="text" name="age" size="3"><br>
+			Сімейне положення:<br>
+			<input type="radio" checked name="f5" value="Неодружений">Неодружений<br>
+			<input type="radio" name="f5" value="Одружений">Одружений<br>
+			<input type="radio" name="f5" value="Закоханий">Закоханий<br>
+			<input type="radio" name="f5" value="В активному пошуку">В активному пошуку<br>
+			<input type="radio" name="f5" value="Є дівчина/хлопець">Є дівчина/хлопець<br>
+			<input type="radio" name="f5" value="Все складно">Все складно<br>
+			<input type="reset" value="Надіслати" onClick="submit_form(form4)"><br>
+		</form>
+	</body>
+</html> 

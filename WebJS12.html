@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WebJS12</title>
+		<script language="JavaScript">
+			function test1(form) {
+				if (form.text1.value == "")
+					alert("Не залишайте поле пустим!")
+				else {
+					alert("Hi, "+form.text1.value+"! Форму заповнено коректно!");
+				}
+				}
+			function test2(form) {
+				if (form.text2.value == "" ||
+					form.text2.value.indexOf('@', 0) == -1)
+					alert("Неправильно введена адреса e-mail!");
+				else alert("OK!");
+			}
+			function test(input) {
+				if (isNaN(Number(input))) {
+					alert("Номер не коректний.");
+				} else {
+					alert("Номер коректний!");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="first">
+			Ім’я:<br>
+			<input type="text" name="text1">
+			<input type="button" name="button1" value="Перевірка" onClick="test1(this.form)"><br>
+			E-mail:<br>
+			<input type="text" name="text2">
+			<input type="button" name="button2" value="Перевірка" onClick="test2(this.form)"><br>
+			Номер:<br>
+			<input type="text" name="telephone">
+			<input type="button" value="Перевірка" onClick="test(this.form.telephone.value)"><br>
+		</form>
+	</body>
+</html> 

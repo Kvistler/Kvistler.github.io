@@ -1,0 +1,100 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WebJS3</title>
+		<script language="JavaScript">
+			function maxval(obj){
+				a = Number(obj.num1.value)
+				b = Number(obj.num2.value)
+				c = Number(obj.num3.value)
+				m=a
+				if (b > m)
+					m=b
+				if (c > m)
+					m=c
+				obj.res.value=m
+			}
+			function maxcount(obj){
+				num1 = Number(obj.num1.value)
+				num2 = Number(obj.num2.value)
+				num3 = Number(obj.num3.value)
+				num4 = Number(obj.num4.value)
+				num5 = Number(obj.num5.value)
+				maxnumber = Math.max(Math.max(num1,num2),Math.max(num3,Math.max(num4,num5)))
+				obj.res.value = 0
+				if (maxnumber == num1)
+					obj.res.value++
+				if (maxnumber == num2)
+					obj.res.value++
+				if (maxnumber == num3)
+					obj.res.value++
+				if (maxnumber == num4)
+					obj.res.value++
+				if (maxnumber == num5)
+					obj.res.value++
+			}
+			function triangle(obj){
+				length1 = Number(obj.length1.value)
+				length2 = Number(obj.length2.value)
+				length3 = Number(obj.length3.value)
+				if (length1+length2 > length3 && length2+length3 > length1 && length1+length3 > length2)
+					obj.res.value="Можливо побудувати"
+				else
+					obj.res.value="Неможливо побудувати"
+			}
+			function quadrant(obj){
+				x = Number(obj.x.value)
+				y = Number(obj.y.value)
+				if (x > 0 && y > 0)
+					obj.res.value="1 чверть"
+				else if (x < 0 && y > 0)
+					obj.res.value="2 чверть"
+				else if (x < 0 && y < 0)
+					obj.res.value="3 чверть"
+				else if (x > 0 && y > 0)
+					obj.res.value="4 чверть"
+				else
+					obj.res.value="Точка лежить на осі"
+			}
+		</script>
+	</head>
+	<body>
+		<p>Обчислення максимального значення</p>
+		<form name="form1">
+			Число 1: <input type="text" size=5 name="num1"><br>
+			Число 2: <input type="text" size=5 name="num2"><br>
+			Число 3: <input type="text" size=5 name="num3"><br>
+			Максимальне значення = <input type="text" size=5 name="res"><br>
+			<input type="button" value="Визначити" onClick="maxval(form1)">
+			<input type="reset">
+		</form>
+		<p>Визначення кількості максимальних чисел для введеної послідовності</p>
+		<form name="form2">
+			Число 1: <input type="text" size=5 name="num1"><br>
+			Число 2: <input type="text" size=5 name="num2"><br>
+			Число 3: <input type="text" size=5 name="num3"><br>
+			Число 4: <input type="text" size=5 name="num4"><br>
+			Число 5: <input type="text" size=5 name="num5"><br>
+			Кількість максимальних чисел = <input type="text" size=5 name="res"><br>
+			<input type="button" value="Визначити" onClick="maxcount(form2)">
+			<input type="reset">
+		</form>
+		<p>Можливість побудови трикутника із заданими довжинами сторін</p>
+		<form name="form3">
+			Довжина 1: <input type="text" size=5 name="length1"><br>
+			Довжина 2: <input type="text" size=5 name="length2"><br>
+			Довжина 3: <input type="text" size=5 name="length3"><br>
+			<input type="text" size=20 name="res"><br>
+			<input type="button" value="Визначити" onClick="triangle(form3)">
+			<input type="reset">
+		</form>
+		<p>Встановлення чверті системи координат</p>
+		<form name="form4">
+			x: <input type="text" size=5 name="x"><br>
+			y: <input type="text" size=5 name="y"><br>
+			<input type="text" size=20 name="res"><br>
+			<input type="button" value="Визначити" onClick="quadrant(form4)">
+			<input type="reset">
+		</form>
+	</body>
+</html>

@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WebJS6</title>
+		<script>
+			s="Baм подобається: \r\n"
+			function set(vch){
+			s=s+vch + "\r\n"
+			document.form1.area.value=s
+			}
+			function grant(){
+				d=document
+				k=0;
+				if ((d.form2.elements[0]).checked)
+					k=k+Number(d.form2.elements[0].value)
+				if ((d.form2.elements[1]).checked)
+					k=k+Number(d.form2.elements[1].value)
+				if ((d.form2.elements[2]).checked)
+					k=k+Number(d.form2.elements[2].value)
+				form2.ww.value="Ваша винагорода "+k+" y.e."
+			}
+			function price(){
+				d=document
+				k=0;
+				if ((d.form3.elements[0]).checked)
+					k=k+Number(d.form3.elements[0].value)
+				if ((d.form3.elements[1]).checked)
+					k=k+Number(d.form3.elements[1].value)
+				if ((d.form3.elements[2]).checked)
+					k=k+Number(d.form3.elements[2].value)
+				if ((d.form3.elements[3]).checked)
+					k=k+Number(d.form3.elements[3].value)
+				if ((d.form3.elements[4]).checked)
+					k=k+Number(d.form3.elements[4].value)
+				if ((d.form3.elements[5]).checked)
+					k=k+Number(d.form3.elements[5].value)
+				if (!isNaN(d.form3.course_length.value) && Number(d.form3.course_length.value) > 0) {
+					k=k+Number(d.form3.course_length.value)
+					flag=1
+				} else {
+					alert("Коректно заповніть поле!")
+					flag=0
+				}
+				
+				if(flag)
+					form3.ww.value="Ваша вартість "+k+" y.e."
+			}
+		</script>
+	</head>
+	<body bgcolor="F8F8FF">
+		<center>
+			<h3 align="center">Анкета</h3>
+			<form name="form0">
+				<h4>Введіть назву улюбленого журнала чи газети</h4>
+				<input type="text" name="n1" size=45><br>
+			</form>
+			<form name="form1">
+				<h4>Що вам подобається у виданні?</h4>
+				<table border=3 align=center>
+					<tr>
+						<td>
+							<input type="checkbox" name="m1" value="Стиль подачі матеріалу"
+							onClick="set(form1.elements[0].value)">
+							Стиль подачі материалу<br> 
+							<input type="checkbox" name="m2" value="Достовірність інформації"
+							onClick="set(form1.elements[1].value)">
+							Достовірність інформації<br>
+							<input type="checkbox" name="m3" value="Дизайн і оформлення"
+							onClick="set(form1.elements[2].value)">
+							Дизайн і оформлення<br>
+						</td>
+					</tr>
+				</table>
+				<textarea name="area" cols=35 rows=7></textarea><br>
+				<input type="reset" value="Очистити" onclick= "s='Baм подобається: \r\n'">
+			</form>
+			
+			<h3>Анкета перекладача</h3>
+			Вкажіть ті мови, якими Ви володієте: <br>
+			<form name="form2">
+				<input type="checkbox" name="lan" value=100>українська<br>
+				<input type="checkbox" name="lan" value=200>англійська<br>
+				<input type="checkbox" name="lan" value=300>китайська<br>
+				<input type="button" value="Винагорода" onClick="grant()"> <hr>
+				<input type="Text" size=50 name="ww" value=""><br>
+				<input type="reset" value="Скасувати">
+			</form>
+			
+			<h3>Слухач курсів</h3>
+			<form name="form3">
+				Оберіть курс:<br>
+				<input type="checkbox" name="ch1" value=100>Курс1<br>
+				<input type="checkbox" name="ch1" value=200>Курс2<br>
+				<input type="checkbox" name="ch1" value=300>Курс3<br>
+				Оберіть мову:<br>
+				<input type="checkbox" name="ch2" value=100>Українська<br>
+				<input type="checkbox" name="ch2" value=200>Російська<br>
+				<input type="checkbox" name="ch2" value=300>Англійська<br>
+				Тривалість курсу: <input type="text" name="course_length" size="3"><br>
+				<input type="button" value="Обрахувати вартість" onClick="price()"> <hr>
+				<input type="Text" size=50 name="ww" value=""><br>
+				<input type="reset" value="Очистити">
+		</center>
+	</body>
+</html> 

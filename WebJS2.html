@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WebJS2</title>
+		<script language="JavaScript">
+			function square (a, h){
+				var s=(a*h)/2;
+				alert("Площа прямокутного трикутника = " + s);
+				return s
+			}
+			function square_rec(obj){
+				obj.res.value=obj.num1.value*obj.num1.value
+			}
+			function square_triangle(obj){
+				length12=Math.sqrt(Math.pow((obj.x1.value-obj.x2.value),2)+Math.pow((obj.y1.value-obj.y2.value),2))
+				length23=Math.sqrt(Math.pow((obj.x2.value-obj.x3.value),2)+Math.pow((obj.y2.value-obj.y3.value),2))
+				length31=Math.sqrt(Math.pow((obj.x3.value-obj.x1.value),2)+Math.pow((obj.y3.value-obj.y1.value),2))
+				p=(length12+length23+length31)/2
+				obj.res.value=Math.sqrt(p*(p-length12)*(p-length23)*(p-length31))
+			}
+			function length0(obj){
+				obj.res.value=Math.sqrt(Math.pow(obj.x1.value,2)+Math.pow(obj.y1.value,2))
+			}
+			function swap(obj){
+				temp=obj.x.value
+				obj.x.value=obj.y.value
+				obj.y.value=temp
+			}
+		</script> 
+	</head>
+	<body>
+		<P>Площа прямокутного трикутника</P>
+		<form name="form1">
+			Основа: <input type="text" size=5 name="param1"><br>
+			Висота: <input type="text" size=5 name="param2"><br>
+			<input type="button" value=Обчислити onClick="square(document.form1.param1.value, document.form1.param2.value)">
+			<input type="reset">
+		</form>
+		<p>Обчислення площі квадрата</p>
+		<form name="form2">
+			Сторона: <input type="text" size=5 name="num1" onChange="square_rec(form2)"><br>
+			Площа квадрата: <input type="text" size=5 name="res"><br>
+			<input type="reset">
+		</form>
+		<p>Обчислення площі трикутника (focus)</p>
+		<form name="form3">
+			x1: <input type="text" size=5 name="x1">
+			y1: <input type="text" size=5 name="y1"><br>
+			x2: <input type="text" size=5 name="x2">
+			y2: <input type="text" size=5 name="y2"><br>
+			x3: <input type="text" size=5 name="x3">
+			y3: <input type="text" size=5 name="y3"><br>
+			Площа: <input type="text" size=5 name="res" onFocus="square_triangle(form3)"><br>
+			<input type="reset">
+		</form>
+		<p>Відстань до початку координат (select)</p>
+		<form name="form4">
+			x1: <input type="text" size=5 name="x1">
+			y1: <input type="text" size=5 name="y1"><br>
+			Відстань: <input type="text" size=5 name="res" onSelect="length0(form4)"><br>
+			<input type="reset">
+		</form>
+		<p>Обмін місцями значення двох змінних (blur)</p>
+		<form name="form5">
+			Перша змінна: <input type="text" size=5 name="x"><br>
+			Друга змінна: <input type="text" size=5 name="y" onBlur="swap(form5)"><br>
+			<input type="reset">
+		</form>
+	</body>
+</html> 

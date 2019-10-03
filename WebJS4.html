@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WebJS4</title>
+		<script>
+			function chan(obj){
+				r1=Number(obj.a1.value)
+				r2=Number(obj.a2.value)
+				if ((r1<1)||(r1>3)||(r2<1)||(r2>3))
+					alert ("Неправильно задані номери зображень!")
+				else{
+					z=document.images[r1-1].src
+					document.images[r1-1].src=document.images[r2-1].src
+					document.images[r2-1].src=z
+				}
+			}
+			function img(n, action){
+				if (action)
+					document.images[n-1].src="wpch"+(n-3)+".png"
+				else
+					document.images[n-1].src="pch"+(n-3)+".png"
+			}
+			function picturepick(n){
+				if (n == 7)
+					document.images[9].src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Un1.svg/1200px-Un1.svg.png"
+				else if (n == 8)
+					document.images[9].src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Deux.svg/1024px-Deux.svg.png"
+				else if (n == 9)
+					document.images[9].src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Trois.svg/1024px-Trois.svg.png"
+			}
+			function zoom(action){
+				if (action)
+					document.images[10].width=400
+				else
+					document.images[10].width=200
+			}
+			function menu(n, action){
+				if (action)
+					document.getElementById("aa" + n).id="menu_selected"
+				else
+					document.getElementById("menu_selected").id="aa" + n
+			}
+		</script>
+		<style type="text/css">
+			.menu a {
+				position: relative;
+			}
+
+			#menu_selected:before {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-top: 15px solid white;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				top: -90px;
+				left: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+			<p>Галерея малюнків</p>
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Un1.svg/1200px-Un1.svg.png" width="90" name="pic1" alt="pic1"">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Deux.svg/1024px-Deux.svg.png" width="90" name="pic2" alt="pic2">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Trois.svg/1024px-Trois.svg.png" width="90" name="pic3" alt="pic3"><br>
+			<form name=form1>
+				Зображення з номерами<br>
+				<input type="text" name="a1" size=1> і
+				<input type="text" name="a2" size=1><P>
+				<input type="button" value=" Переставити" onClick="chan(form1)">
+			</form>
+		</center>
+		<div>
+			<h2>Зміст</h2>
+			<a href="WebJS1.html" onmouseover="img(4,1)" onmouseout="img(4,0)">
+			<img src="pch1.png" аlt="пункт 1" border="0" width="100" height="100"></a><br>
+			<a href="WebJS2.html" onmouseover="img(5,1)" onmouseout="img(5,0)">
+			<img src="pch2.png" аlt="пункт 2" border="0" width="100" height="100"></a><br>
+			<a href="WebJS3.html" onmouseover="img(6,1)" onmouseout="img(6,0)">
+			<img src="pch3.png" аlt="пункт 3" border="0" width="100" height="100"></a><br>
+		</div>
+		<div>
+			<p>Вибір із трьох зображень одного, яке вставляється нижче</p>
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Un1.svg/1200px-Un1.svg.png" width="90" name="pic7" alt="pic7" onClick="picturepick(7)">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Deux.svg/1024px-Deux.svg.png" width="90" name="pic8" alt="pic8" onClick="picturepick(8)">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Trois.svg/1024px-Trois.svg.png" width="90" name="pic9" alt="pic9" onClick="picturepick(9)"><br>
+			<img width="90" name="pic10">
+		</div>
+		<div>
+			<p>Ефект наближення</p>
+			<img src="https://developers.google.com/web/fundamentals/design-and-ux/responsive/img/html5.svg" width="200" name="pic11" alt="pic11" onmouseover="zoom(1)" onmouseout="zoom(0)"><br>
+		</div>
+		<div class="menu">
+			<p>Горизонтальне меню з появою стрілки над пунктом, на який наведено курсор</p>
+			<a id="aa1" href="WebJS1.html"><img src="pch1.png" аlt="пункт 1" border="0" width="100" height="100" onmouseover="menu(1,1)" onmouseout="menu(1,0)"></a>
+			<a id="aa2" href="WebJS2.html"><img src="pch2.png" аlt="пункт 2" border="0" width="100" height="100" onmouseover="menu(2,1)" onmouseout="menu(2,0)"></a>
+			<a id="aa3" href="WebJS3.html"><img src="pch3.png" аlt="пункт 3" border="0" width="100" height="100" onmouseover="menu(3,1)" onmouseout="menu(3,0)"></a>
+
+		</div>
+	</body>
+</html>
