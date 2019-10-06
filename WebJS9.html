@@ -102,7 +102,53 @@
 					obj.res.value = zodiacSigns.sagittarius;
 				}
 			}
-			
+			function getEasternYear(obj){
+				t = new Date()
+				date_arr = obj.fye.value.split("-")
+				year = Number(date_arr[0])
+				year_zero = (year % 60) - 4
+				year_twelve = ((year % 60) - 4) % 12
+				s = "Рік "
+				if (year_zero >= 0 && year_zero < 12) {
+					s += "зеленого " + animal(year_twelve)
+				} else if (year_zero >= 12 && year_zero < 24) {
+					s += "червоного " + animal(year_twelve)
+				} else if (year_zero >= 24 && year_zero < 36) {
+					s += "жовтого " + animal(year_twelve)
+				} else if (year_zero >= 36 && year_zero < 48) {
+					s += "білого " + animal(year_twelve)
+				} else if (year_zero >= 48 && year_zero < 60) {
+					s += "чорного " + animal(year_twelve)
+				}
+				obj.res.value = s
+			}
+			function animal(year_twelve) {
+				if(year_twelve == 0) {
+					return "пацюка"
+				} else if(year_twelve == 1) {
+					return "корови"
+				} else if(year_twelve == 2) {
+					return "тигра"
+				} else if(year_twelve == 3) {
+					return "зайця"
+				} else if(year_twelve == 4) {
+					return "дракона"
+				} else if(year_twelve == 5) {
+					return "змії"
+				} else if(year_twelve == 6) {
+					return "коня"
+				} else if(year_twelve == 7) {
+					return "вівці"
+				} else if(year_twelve == 8) {
+					return "мавпи"
+				} else if(year_twelve == 9) {
+					return "курки"
+				} else if(year_twelve == 10) {
+					return "собаки"
+				} else if(year_twelve == 11) {
+					return "свині"
+				}
+			}
 		</script>
 	</head>
 	<body bgcolor="#FFFFCC">
@@ -113,21 +159,21 @@
 		</form>
 		<h4>В які місяці року 13 число — п’ятниця?</h4>
 		<form name="form2">
-			Вкажіть рік: <input type="text" size=8 name="fye">
+			Вкажіть рік: <input type="text" size="8" name="fye">
 			<input type="button" value="Знaйти" onClick="def13(form2)"><br>
 			<textarea cols=30 rows=10 name="res"></textarea><br>
 			<input type="reset" value="Скасувати">
 		</form>
 		<h4>Номер тижня</h4>
 		<form name="form3">
-			Вкажіть дату: <input type="date" size=8 name="fye"><br>
+			Вкажіть дату: <input type="date" size="8" name="fye"><br>
 			Номер тижня: <input type="text" size="8" name="res"><br>
 			<input type="button" value="Визначити" onClick="get_week(form3)"><br>
 			<input type="reset" value="Скасувати">
 		</form>
 		<h4>Знак зодіаку</h4>
 		<form name="form4">
-			Вкажіть дату: <input type="date" size=8 name="fye"><br>
+			Вкажіть дату: <input type="date" size="8" name="fye"><br>
 			Знак зодіаку: <input type="text" size="8" name="res"><br>
 			<input type="button" value="Визначити" onClick="getZodiacSign(form4)"><br>
 			<input type="reset" value="Скасувати">
@@ -135,8 +181,8 @@
 		<h4>Назва року за східним календарем</h4>
 		<form name="form5">
 			Вкажіть дату: <input type="date" size=8 name="fye"><br>
-			Назва: <input type="text" size="8" name="res"><br>
-			<input type="button" value="Визначити" onClick=""><br>
+			Назва: <input type="text" size="20" name="res"><br>
+			<input type="button" value="Визначити" onClick="getEasternYear(form5)"><br>
 			<input type="reset" value="Скасувати">
 		</form>
 	</body>
