@@ -8,11 +8,10 @@ after_success:
 notifications:
   email: false
 deploy:
-  - firebase deploy --token $FIREBASE_TOKEN
 #  provider: pages
 #  github-token: $GITHUB_TOKEN
-#  provider: firebase
-#  token: $FIREBASE_TOKEN
+  provider: firebase
+  token: $FIREBASE_TOKEN
 #after_deploy: firebase deploy --token $FIREBASE_TOKEN
 branches:
   only:
