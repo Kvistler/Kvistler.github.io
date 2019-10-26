@@ -12,7 +12,6 @@ deploy:
 #  github-token: $GITHUB_TOKEN
   provider: firebase
   token: $FIREBASE_TOKEN
-#after_deploy: firebase deploy --token $FIREBASE_TOKEN
 branches:
   only:
     - master
