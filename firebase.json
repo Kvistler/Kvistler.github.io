@@ -1,11 +1,18 @@
 {
     "hosting": {
       "public": "/",
-        "rewrites": [
-          {
-            "source": "**",
-            "destination": "/index.html"
-          }
-        ]
-    }   
+      "ignore": [
+        "firebase.json",
+        "package.json",
+        ".eslintrc.json",
+        ".prettierrc.json",
+        ".gitattributes",
+        ".gitignore",
+        ".travis.yml",
+        ".test/**",
+        ".vscode/**",
+        ".firebase/**",
+        "node_modules/**"
+      ]
+    }
   }
