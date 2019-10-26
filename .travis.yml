@@ -8,8 +8,6 @@ after_success:
 notifications:
   email: false
 deploy:
-#  provider: pages
-#  github-token: $GITHUB_TOKEN
   provider: firebase
   token: $FIREBASE_TOKEN
 branches:
