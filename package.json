@@ -21,7 +21,7 @@
   "homepage": "https://Kvistler.github.io",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint -- --fix && npx prettier public/code_lab.js --write"
+      "pre-commit": "npm run lint -- --fix && npx prettier script.js --write"
     }
   },
   "devDependencies": {
