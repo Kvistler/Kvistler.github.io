@@ -1,4 +1,3 @@
-
 function functionS () {
 	s = 'Baм подобається: \r\n'
 }
@@ -370,26 +369,6 @@ function getZodiacSign (obj) {
 		obj.res.value = zodiacSigns.sagittarius
 	}
 }
-function getEasternYear (obj) {
-	t = new Date()
-	dateArr = obj.fye.value.split('-')
-	year = Number(date_arr[0])
-	yearZero = (year % 60) - 4
-	yearTwelve = ((year % 60) - 4) % 12
-	s = 'Рік '
-	if (yearZero >= 0 && yearZero < 12) {
-		s += 'зеленого ' + animal(year_twelve)
-	} else if (yearZero >= 12 && yearZero < 24) {
-		s += 'червоного ' + animal(year_twelve)
-	} else if (yearZero >= 24 && yearZero < 36) {
-		s += 'жовтого ' + animal(year_twelve)
-	} else if (yearZero >= 36 && yearZero < 48) {
-		s += 'білого ' + animal(year_twelve)
-	} else if (yearZero >= 48 && yearZero < 60) {
-		s += 'чорного ' + animal(year_twelve)
-	}
-	obj.res.value = s
-}
 function animal (yearTwelve) {
 	if (yearTwelve == 0) {
 		return 'пацюка'
@@ -416,6 +395,26 @@ function animal (yearTwelve) {
 	} else if (yearTwelve == 11) {
 		return 'свині'
 	}
+}
+function getEasternYear (obj) {
+	t = new Date()
+	dateArr = obj.fye.value.split('-')
+	year = Number(date_arr[0])
+	yearZero = (year % 60) - 4
+	yearTwelve = ((year % 60) - 4) % 12
+	s = 'Рік '
+	if (yearZero >= 0 && yearZero < 12) {
+		s += 'зеленого ' + animal(year_twelve)
+	} else if (yearZero >= 12 && yearZero < 24) {
+		s += 'червоного ' + animal(year_twelve)
+	} else if (yearZero >= 24 && yearZero < 36) {
+		s += 'жовтого ' + animal(year_twelve)
+	} else if (yearZero >= 36 && yearZero < 48) {
+		s += 'білого ' + animal(year_twelve)
+	} else if (yearZero >= 48 && yearZero < 60) {
+		s += 'чорного ' + animal(year_twelve)
+	}
+	obj.res.value = s
 }
 function tTest (s) {
 	sres = 'Прочитаний текст:' + ' \r\n' + s + '\r\n' + 'Текст в стовпчик:' + '\r\n'
@@ -511,7 +510,9 @@ function maxElement (obj) {
 	obj.result.value = maxEl
 }
 function test1 (form) {
-	if (form.text1.value == '') { alert('Не залишайте поле пустим!') } else {
+	if (form.text1.value == '') {
+		alert('Не залишайте поле пустим!')
+	} else {
 		alert('Hi, ' + form.text1.value + '! Форму заповнено коректно!')
 	}
 }
