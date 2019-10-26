@@ -2,31 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>WebJS2</title>
-		<script language="JavaScript">
-			function square (a, h){
-				var s=(a*h)/2;
-				alert("Площа прямокутного трикутника = " + s);
-				return s
-			}
-			function square_rec(obj){
-				obj.res.value=obj.num1.value*obj.num1.value
-			}
-			function square_triangle(obj){
-				length12=Math.sqrt(Math.pow((obj.x1.value-obj.x2.value),2)+Math.pow((obj.y1.value-obj.y2.value),2))
-				length23=Math.sqrt(Math.pow((obj.x2.value-obj.x3.value),2)+Math.pow((obj.y2.value-obj.y3.value),2))
-				length31=Math.sqrt(Math.pow((obj.x3.value-obj.x1.value),2)+Math.pow((obj.y3.value-obj.y1.value),2))
-				p=(length12+length23+length31)/2
-				obj.res.value=Math.sqrt(p*(p-length12)*(p-length23)*(p-length31))
-			}
-			function length0(obj){
-				obj.res.value=Math.sqrt(Math.pow(obj.x1.value,2)+Math.pow(obj.y1.value,2))
-			}
-			function swap(obj){
-				temp=obj.x.value
-				obj.x.value=obj.y.value
-				obj.y.value=temp
-			}
-		</script> 
+		<script src="script.js"></script> 
 	</head>
 	<body>
 		<P>Площа прямокутного трикутника</P>
@@ -38,7 +14,7 @@
 		</form>
 		<p>Обчислення площі квадрата</p>
 		<form name="form2">
-			Сторона: <input type="text" size=5 name="num1" onChange="square_rec(form2)"><br>
+			Сторона: <input type="text" size=5 name="num1" onChange="squareRec(form2)"><br>
 			Площа квадрата: <input type="text" size=5 name="res"><br>
 			<input type="reset">
 		</form>
@@ -50,7 +26,7 @@
 			y2: <input type="text" size=5 name="y2"><br>
 			x3: <input type="text" size=5 name="x3">
 			y3: <input type="text" size=5 name="y3"><br>
-			Площа: <input type="text" size=5 name="res" onFocus="square_triangle(form3)"><br>
+			Площа: <input type="text" size=5 name="res" onFocus="squareTriangle(form3)"><br>
 			<input type="reset">
 		</form>
 		<p>Відстань до початку координат (select)</p>

@@ -2,61 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>WebJS8</TITLE>
-		<script language="JavaScript">
-			function nod(obj){
-				n=obj.num1.value
-				m=obj.num2.value
-				p = n%m
-				while (p!=0){
-					n=m
-					m=p
-					p=n%m
-				}
-				obj.res.value=m
-			}
-			function dosk(){
-				n=parseInt(prompt("Вкажіть натуральне число", 6));
-				sum = n-1;
-				temp = n;
-				for(i = 2; n>1;){
-					if(!(n%i)){
-						sum-=i;
-						n=n/i;
-					}else i++;
-				}
-				if(!sum)
-					alert("Число: " + temp + " є досконалим");
-				else
-					alert("Число: " + temp + " не є досконалим");
-			}
-			function propobj(obj){
-				result = ""
-				for (i in obj){
-					result += obj.data.value +"." +i+ " = " +(obj.data)[i]+"\r\n"
-				}
-				result += "\n\r"
-				form2.data.value=result
-			}
-			function reverseStr(str) {
-				form3.numres.value = str.split("").reverse().join("");
-			}
-			function tickets(obj){
-				arr = obj.datatickets.value.split("\n")
-				count=0
-				for (i=0; i<arr.length; i++){
-					if (Number(arr[i][0]) + Number(arr[i][1]) + Number(arr[i][2]) == Number(arr[i][3]) + Number(arr[i][4]) + Number(arr[i][5]))
-						count++
-				}
-				obj.restickets.value = count
-			}
-			function divisors(value){
-				res = ""
-				for (i=1; i<=value; i++)
-					if (value % i == 0)
-						res = res + i + " "
-				form5.numres.value = res
-			}
-		</script>
+		<script src="script.js"></script>
 	</head>
 	<body>
 		НСД двох заданих чисел
@@ -70,7 +16,7 @@
 		<input type="button" value="Досконале число" onClick="dosk()">
 		<h4>Властивості об’єкта – текстового поля</h4>
 		<form name="form2">
-			<input type="button" value="Виконати" onClick="propobj(form2)"><hr>
+			<input type="button" value="Виконати" onClick="propObj(form2)"><hr>
 			<textarea name="data" cols=80 rows=20 id=1>Текст</textarea><hr>
 			<input type="reset" value="Очистити">
 		</form>

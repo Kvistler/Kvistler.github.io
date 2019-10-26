@@ -2,45 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>WebJS4</title>
-		<script>
-			function chan(obj){
-				r1=Number(obj.a1.value)
-				r2=Number(obj.a2.value)
-				if ((r1<1)||(r1>3)||(r2<1)||(r2>3))
-					alert ("Неправильно задані номери зображень!")
-				else{
-					z=document.images[r1-1].src
-					document.images[r1-1].src=document.images[r2-1].src
-					document.images[r2-1].src=z
-				}
-			}
-			function img(n, action){
-				if (action)
-					document.images[n-1].src="wpch"+(n-3)+".png"
-				else
-					document.images[n-1].src="pch"+(n-3)+".png"
-			}
-			function picturepick(n){
-				if (n == 7)
-					document.images[9].src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Un1.svg/1200px-Un1.svg.png"
-				else if (n == 8)
-					document.images[9].src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Deux.svg/1024px-Deux.svg.png"
-				else if (n == 9)
-					document.images[9].src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Trois.svg/1024px-Trois.svg.png"
-			}
-			function zoom(action){
-				if (action)
-					document.images[10].width=400
-				else
-					document.images[10].width=200
-			}
-			function menu(n, action){
-				if (action)
-					document.getElementById("aa" + n).id="menu_selected"
-				else
-					document.getElementById("menu_selected").id="aa" + n
-			}
-		</script>
+		<script src="script.js"></script>
 		<style type="text/css">
 			.menu a {
 				position: relative;
@@ -83,9 +45,9 @@
 		</div>
 		<div>
 			<p>Вибір із трьох зображень одного, яке вставляється нижче</p>
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Un1.svg/1200px-Un1.svg.png" width="90" name="pic7" alt="pic7" onClick="picturepick(7)">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Deux.svg/1024px-Deux.svg.png" width="90" name="pic8" alt="pic8" onClick="picturepick(8)">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Trois.svg/1024px-Trois.svg.png" width="90" name="pic9" alt="pic9" onClick="picturepick(9)"><br>
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Un1.svg/1200px-Un1.svg.png" width="90" name="pic7" alt="pic7" onClick="picturePick(7)">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Deux.svg/1024px-Deux.svg.png" width="90" name="pic8" alt="pic8" onClick="picturePick(8)">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Trois.svg/1024px-Trois.svg.png" width="90" name="pic9" alt="pic9" onClick="picturePick(9)"><br>
 			<img width="90" name="pic10">
 		</div>
 		<div>

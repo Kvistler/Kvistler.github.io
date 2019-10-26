@@ -2,44 +2,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>WebJS7</title>
-		<script language="JavaScript">
-			s=""
-			sum=0
-			function gr(obj,m){
-				r=100*(Number(((obj.elements[0])[m]).value)+1)
-				s+=((obj.elements[0])[m]).text+"\r\n"
-				obj.restext.value=s
-				sum+=r
-				obj.res.value=r
-			}
-			sum1=0
-			function eq(){
-				q=test.question.value
-				a=test.answer.value;
-				if (a==q)
-					sum1 +=1
-			}
-			function result(){
-				document.test.res.value=sum1
-			}
-			function change_bg(color, mode, image){
-				if (mode == 1)
-					document.getElementById("chosen_table").style.backgroundColor = color
-				else
-					document.getElementById("chosen_table").style.backgroundImage = "url('" + image + "')"
-			}
-			sum2=0
-			s1=""
-			function gr1(obj,m){
-				r=100*(Number(((obj.elements[0])[m]).value)+1)
-				s1+=((obj.elements[0])[m]).text+"\r\n"
-				obj.restext.value=s1
-				sum2+=r
-				obj.res.value=r
-			}
-		</script>
+		<script src="script.js"></script>
 	</head>
-	<body>
+	<body onLoad="functionS2()">
 		<form name="form1">
 			<h3>Анкета</h3>
 			<table border=3 bgcolor=silver>
@@ -110,7 +75,7 @@
 			</select><br><br>
 			Оберіть колір: <input type="color" name="chosen_color"><br>
 			Посилання на зображення: <input type="text" size=100 name="chosen_image"><br>
-			<input type="button" value="Змінити" onClick="change_bg(document.table_thing.chosen_color.value, document.table_thing.bg.value, document.table_thing.chosen_image.value)">
+			<input type="button" value="Змінити" onClick="changeBg(document.table_thing.chosen_color.value, document.table_thing.bg.value, document.table_thing.chosen_image.value)">
 			<input type="reset">
 		</form>
 		<br>

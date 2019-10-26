@@ -2,68 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>WebJS5</title>
-		<script language="JavaScript">
-			function test(k){
-				a = form1.data.value
-				if (a != "")
-					form1.res.value= k*Math.pow(a,2)
-				else
-					alert ("Введіть значення!")
-			}
-			function chpict(obj){
-				if ((obj.elements[0]).checked)
-					document.mypict.align="left"
-				else
-					document.mypict.align="right"
-			}
-			function reset(){
-				document.mypict.align="left"
-			}
-			function linechange(obj){
-				if (obj.data.value != ""){
-					if ((obj.elements[1]).checked)
-						document.getElementById("line").width = Number(document.getElementById("line").width) + Number(obj.data.value)
-					else
-						document.getElementById("line").size = Number(document.getElementById("line").size) + Number(obj.data.value)
-				}
-				else
-					alert ("Введіть значення!")
-			}
-			function resetline(){
-				document.getElementById("line").width = 1500
-				document.getElementById("line").size = 0
-			}
-			function submit_form(obj){
-				if (obj.person_name.value != "" && obj.age.value != ""){
-					person_name = obj.person_name.value
-					if (!isNaN(obj.age.value) && Number(obj.age.value) >= 0 && Number(obj.age.value) <= 200) {
-						age = Number(obj.age.value)
-						flag=1
-					} else {
-						alert("Введіть коректні дані")
-						flag=0
-					}
-					
-					rad_sex=document.getElementsByName("f4")
-					for (i=0; i<rad_sex.length; i++) {
-						if (rad_sex[i].checked) {
-							sex = rad_sex[i].value
-						}
-					}
-
-					rad_status=document.getElementsByName("f5")
-					for (i=0; i<rad_status.length; i++) {
-						if (rad_status[i].checked) {
-							status = rad_status[i].value
-						}
-					}
-					
-					if (flag)
-						alert("ПІБ: " + person_name + ", " + sex + ", " + age + " років, " + status + ".")
-				} else
-					alert("Заповніть всі поля!")
-			}
-		</script>
+		<script src="script.js"></script>
 	</head>
 	<body>
 		<form name="form1">
@@ -83,7 +22,7 @@
 			<b>Переглянути</b>.<br>
 			<input type="radio" name="alg" checked value=ld>(left) вирівнювання вліво<br>
 			<input type="radio" name="alg" value=rd>(right) вирівнювання вправо<br>
-			<input type="button" value= "Переглянути" onclick="chpict(form2)">
+			<input type="button" value= "Переглянути" onclick="chPict(form2)">
 			<input type="reset" value="Скасувати" onclick="reset()">
 		</form>
 		<table bgcolor="F8F8FF">
@@ -111,8 +50,8 @@
 			Змінити:<br>
 			<input type="radio" name="f3" checked>Ширину<br>
 			<input type="radio" name="f3">Висоту<br>
-			<input type="button" value="Виконати" onClick="linechange(form3)"><br>
-			<input type="reset" onClick="resetline()"><br>
+			<input type="button" value="Виконати" onClick="lineChange(form3)"><br>
+			<input type="reset" onClick="resetLine()"><br>
 		</form>
 		<hr id="line" width="1500">
 		
@@ -133,7 +72,7 @@
 			<input type="radio" name="f5" value="В активному пошуку">В активному пошуку<br>
 			<input type="radio" name="f5" value="Є дівчина/хлопець">Є дівчина/хлопець<br>
 			<input type="radio" name="f5" value="Все складно">Все складно<br>
-			<input type="reset" value="Надіслати" onClick="submit_form(form4)"><br>
+			<input type="reset" value="Надіслати" onClick="submitForm(form4)"><br>
 		</form>
 	</body>
 </html> 

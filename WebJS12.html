@@ -2,28 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>WebJS12</title>
-		<script language="JavaScript">
-			function test1(form) {
-				if (form.text1.value == "")
-					alert("Не залишайте поле пустим!")
-				else {
-					alert("Hi, "+form.text1.value+"! Форму заповнено коректно!");
-				}
-				}
-			function test2(form) {
-				if (form.text2.value == "" ||
-					form.text2.value.indexOf('@', 0) == -1)
-					alert("Неправильно введена адреса e-mail!");
-				else alert("OK!");
-			}
-			function test(input) {
-				if (isNaN(Number(input))) {
-					alert("Номер не коректний.");
-				} else {
-					alert("Номер коректний!");
-				}
-			}
-		</script>
+		<script src="script.js"></script>
 	</head>
 	<body>
 		<form name="first">
@@ -35,7 +14,7 @@
 			<input type="button" name="button2" value="Перевірка" onClick="test2(this.form)"><br>
 			Номер:<br>
 			<input type="text" name="telephone">
-			<input type="button" value="Перевірка" onClick="test(this.form.telephone.value)"><br>
+			<input type="button" value="Перевірка" onClick="test3(this.form.telephone.value)"><br>
 		</form>
 	</body>
 </html> 

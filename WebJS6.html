@@ -2,52 +2,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>WebJS6</title>
-		<script>
-			s="Baм подобається: \r\n"
-			function set(vch){
-			s=s+vch + "\r\n"
-			document.form1.area.value=s
-			}
-			function grant(){
-				d=document
-				k=0;
-				if ((d.form2.elements[0]).checked)
-					k=k+Number(d.form2.elements[0].value)
-				if ((d.form2.elements[1]).checked)
-					k=k+Number(d.form2.elements[1].value)
-				if ((d.form2.elements[2]).checked)
-					k=k+Number(d.form2.elements[2].value)
-				form2.ww.value="Ваша винагорода "+k+" y.e."
-			}
-			function price(){
-				d=document
-				k=0;
-				if ((d.form3.elements[0]).checked)
-					k=k+Number(d.form3.elements[0].value)
-				if ((d.form3.elements[1]).checked)
-					k=k+Number(d.form3.elements[1].value)
-				if ((d.form3.elements[2]).checked)
-					k=k+Number(d.form3.elements[2].value)
-				if ((d.form3.elements[3]).checked)
-					k=k+Number(d.form3.elements[3].value)
-				if ((d.form3.elements[4]).checked)
-					k=k+Number(d.form3.elements[4].value)
-				if ((d.form3.elements[5]).checked)
-					k=k+Number(d.form3.elements[5].value)
-				if (!isNaN(d.form3.course_length.value) && Number(d.form3.course_length.value) > 0) {
-					k=k+Number(d.form3.course_length.value)
-					flag=1
-				} else {
-					alert("Коректно заповніть поле!")
-					flag=0
-				}
-				
-				if(flag)
-					form3.ww.value="Ваша вартість "+k+" y.e."
-			}
-		</script>
+		<script src="script.js"></script>
 	</head>
-	<body bgcolor="F8F8FF">
+	<body bgcolor="F8F8FF" onLoad="functionS()">
 		<center>
 			<h3 align="center">Анкета</h3>
 			<form name="form0">

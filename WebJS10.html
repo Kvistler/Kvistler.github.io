@@ -2,69 +2,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title>WebJS10</title>
-		<script language="JavaScript">
-			function ttest(s){
-				sres="Прочитаний текст:" + " \r\n" + s + "\r\n" + 'Текст в стовпчик:' + "\r\n"
-				cur=""
-				for (i=0; i <= s.length-1; i += 1){
-					c=s.charAt(i)
-					cur +=c+"\r\n"
-				}
-				sres+=cur
-				return sres
-			}
-			function numword(obj){
-				h=obj.data.value
-				s=obj.textin.value
-				s=' '+s+' '
-				h=' '+h+' '
-				m=h.length
-				res=0
-				i=0
-				while (i <= s.length-1){
-					ch=s.substr(i,m)
-					if (ch==h){
-						res+=1
-						i = i+m-1
-					} else
-						i++
-				}
-				obj.result.value=res
-			}
-			function word_count(obj){
-				obj.result.value = obj.textin.value.split(" ").length
-			}
-			function word_change(obj){
-				arr = obj.textin.value.split(" ")
-				f_word = obj.data1.value
-				r_word = obj.data2.value
-				str = ""
-				for(i=0; i<arr.length; i++){
-					if (arr[i] === f_word)
-						str += r_word + " "
-					else
-						str += arr[i] + " "
-				}
-				obj.textin.value = str
-			}
-			function spc_rep(obj){
-				str = obj.textin.value.split(" ")
-				sres = ""
-				for(i=0; i<str.length; i++){
-					str[i] = str[i].trim()
-					sres += str[i]
-					if (str[i] != "")
-						sres += " "
-				}
-				obj.textin.value = sres
-			}
-		</script>
+		<script src="script.js"></script>
 	</head>
 	<body bgcolor="#FFFFCC">
 		<h4>Вивід символів рядка в стовпчик</h4>
 		<form name="form1">
 			Введіть рядок: <input type="text" size=30 name="st1"><hr>
-			<input type="button" value="Bикoнати" onClick="form1.res.value=ttest(form1.st1.value)">
+			<input type="button" value="Bикoнати" onClick="form1.res.value=tTest(form1.st1.value)">
 			<input type="reset" value="Скасувати"><hr>
 			<textarea cols=60 rows=20 name="res"></textarea>
 		</form>
@@ -73,7 +17,7 @@
 			Введіть текст:<br>
 			<textarea name="textin" rows=4 cols=20></textarea><hr>
 			Введіть слово: <input type="text" name="data" size="8"><hr>
-			<input type="button" value="Обчислити" onClick="numword(form2)"><hr>
+			<input type="button" value="Обчислити" onClick="numWord(form2)"><hr>
 			Кількість заданих слів у тексті: <input type="text" name="result" size=8><hr>
 			<input type="reset" value="Скасувати">
 		</form>
@@ -81,7 +25,7 @@
 		<form name="form3">
 			Введіть текст:<br>
 			<textarea name="textin" rows=4 cols=20></textarea><hr>
-			<input type="button" value="Обчислити" onClick="word_count(form3)"><hr>
+			<input type="button" value="Обчислити" onClick="wordCount(form3)"><hr>
 			Кількість слів у тексті: <input type="text" name="result" size=8><hr>
 			<input type="reset" value="Скасувати">
 		</form>
@@ -91,14 +35,14 @@
 			<textarea name="textin" rows=4 cols=20></textarea><hr>
 			Замінити слово: <input type="text" name="data1" size="8"><br>
 			На слово: <input type="text" name="data2" size="8"><br>
-			<input type="button" value="Замінити" onClick="word_change(form4)"><br>
+			<input type="button" value="Замінити" onClick="wordChange(form4)"><br>
 			<input type="reset" value="Скасувати">
 		</form>
 		<h4>Заміна пробілів</h4>
 		<form name="form5">
 			Введіть текст:<br>
 			<textarea name="textin" rows=4 cols=20></textarea><hr>
-			<input type="button" value="Прибрати пробіли" onClick="spc_rep(form5)"><br>
+			<input type="button" value="Прибрати пробіли" onClick="spcRep(form5)"><br>
 			<input type="reset" value="Скасувати">
 		</form>
 	</body>

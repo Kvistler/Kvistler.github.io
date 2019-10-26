@@ -2,51 +2,18 @@
 	<head>
 		<meta charset="utf-8">
 		<title>WebJS11</title>
-		<script>
-			function mult(){
-				img_array = new Array
-				for (i=0; i<4; i++)
-					img_array[i] = new Image(100,100)
-				img_array[0].src = "pch1.png"
-				img_array[1].src = "pch2.png"
-				img_array[2].src = "pch3.png"
-				img_array[3].src = "pch4.png"
-				p=-1
-			}
-			function s(){
-				p=p+1
-				document.images[0].src = img_array[p].src
-				setTimeout("s()",100)
-				if (p==3) p=-1
-			}
-			function positive_nums(obj){
-				arr = obj.data.value.split(" ")
-				count = 0
-				for (i=0; i<arr.length; i++)
-					if(Number(arr[i]) > 0)
-						count++
-				obj.result.value = count
-			}
-			function max_element(obj){
-				arr = obj.data.value.split(" ")
-				max_el = Number(arr[0])
-				for (i=0; i<arr.length; i++)
-					if(Number(arr[i]) > max_el)
-						max_el = Number(arr[i])
-				obj.result.value = max_el
-			}
-		</script>
+		<script src="script.js"></script>
 	</head>
 	<body onLoad="mult()">
 		<h4>Анімація</h4>
 		<img src="pch1.png"><br>
-		<input type="button" value="Ввімкнути" onClick="s()">
+		<input type="button" value="Ввімкнути" onClick="s0()">
 		<h4>Одномірний масив</h4>
 		<form name="form1">
 			Масив: <input type="text" size=40 value="-3 -2 -1 0 1 2 3" name="data"><br>
 			Результат: <input type="text" size=20 name="result"><br>
-			<input type="button" value="Кількість додатніх" onClick="positive_nums(form1)">
-			<input type="button" value="Максимальний елемент" onClick="max_element(form1)"><br>
+			<input type="button" value="Кількість додатніх" onClick="positiveNums(form1)">
+			<input type="button" value="Максимальний елемент" onClick="maxElement(form1)"><br>
 			<input type="reset" value="Скасувати">
 		</form> 
 	</body>
