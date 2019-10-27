@@ -4,6 +4,9 @@
       "ignore": [
         "firebase.json",
         "package.json",
+        "package-lock.json",
+        "node_modules/**",
+        ".firebaserc",
         ".eslintrc.json",
         ".prettierrc.json",
         ".gitattributes",
@@ -12,8 +15,7 @@
         ".test/**",
         ".vscode/**",
         ".firebase/**",
-        ".git/**",
-        "node_modules/**"
+        ".git/**"
       ]
     }
   }
