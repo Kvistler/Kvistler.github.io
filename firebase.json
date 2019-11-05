@@ -12,7 +12,6 @@
         ".gitattributes",
         ".gitignore",
         ".travis.yml",
-        ".test/**",
         ".vscode/**",
         ".firebase/**",
         ".git/**"
